@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#fffaf4" />
+  <title>little thyme — what's in your fridge?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E✿%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="little thyme home"><span class="brand-mark">✿</span><span>little thyme</span></a>
+      <nav><a href="#how">How it works</a><a href="#recipes">Your recipes</a></nav>
+      <button class="saved-link" id="savedToggle"><span>♡</span> <span>Saved</span><b id="savedCount">0</b></button>
+    </header>
+
+    <main>
+      <section class="intro" id="how">
+        <div class="intro-copy">
+          <div class="eyebrow"><span class="sparkle">✦</span> A little inspiration for dinner</div>
+          <h1>Good things<br>are <em>cooking.</em></h1>
+          <p>Tell us what’s hanging out in your kitchen. We’ll find something lovely to make.</p>
+          <div class="intro-notes"><span>✿ Real recipes from around the web</span><span>♡ Made for what you have</span></div>
+        </div>
+        <div class="hero-art" aria-label="A colorful bowl of food">
+          <div class="art-sun"></div>
+          <div class="art-sticker sticker-top">made with<br>what you have <span>☺</span></div>
+          <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=900&q=85" alt="Fresh salad bowl with vegetables" />
+          <div class="art-sticker sticker-bottom">a pinch of<br>possibility <span>✦</span></div>
+          <span class="art-flower flower-one">✿</span><span class="art-flower flower-two">✳</span>
+        </div>
+      </section>
+
+      <section class="kitchen-panel" aria-labelledby="kitchen-title">
+        <div class="panel-heading">
+          <div><div class="section-kicker">FIRST THINGS FIRST</div><h2 id="kitchen-title">What’s in your kitchen?</h2></div>
+          <div class="step-pill"><span>1</span> Your ingredients</div>
+        </div>
+        <p class="panel-subtitle">Add a few things you have on hand. We’ll do the delicious math.</p>
+        <form id="ingredientForm" class="ingredient-form">
+          <span class="input-icon">⌕</span>
+          <input id="ingredientInput" type="text" placeholder="Try “chickpeas” or “a little parmesan”…" autocomplete="off" />
+          <button type="submit" class="add-button">Add ingredient <span>＋</span></button>
+        </form>
+        <div class="ingredient-row"><div id="ingredientList" class="ingredient-list" aria-live="polite"></div><button id="clearIngredients" class="text-button">Clear all</button></div>
+        <div class="pantry-row"><span class="pantry-label">QUICK ADD</span><div id="quickAdd" class="quick-add"></div></div>
+        <div class="search-row"><div class="helper-note"><span>✦</span> Pantry staples like salt, oil &amp; pepper are assumed.</div><button id="findRecipes" class="primary-button">Find my recipes <span>→</span></button></div>
+      </section>
+
+      <section id="recipes" class="recipes-section">
+        <div class="results-heading">
+          <div><div class="section-kicker">A LITTLE SOMETHING TO MAKE</div><h2 id="resultsTitle">Your fridge has <em>potential.</em></h2></div>
+          <button id="surpriseButton" class="surprise-button"><span>⤨</span> Surprise me</button>
+        </div>
+        <div id="statusLine" class="status-line"><span class="status-dot"></span><span id="statusText">A few ideas to get you started</span></div>
+        <div id="recipeGrid" class="recipe-grid"></div>
+        <div class="more-row"><span>Good food doesn’t have to be complicated.</span><button id="moreIdeas" class="text-button">Show me more ideas <span>→</span></button></div>
+      </section>
+    </main>
+    <footer><a class="brand footer-brand" href="#"><span class="brand-mark">✿</span><span>little thyme</span></a><span>Made for the “what’s for dinner?” moment.</span><span class="footer-heart">with a little love ♡</span></footer>
+  </div>
+
+  <div id="recipeModal" class="modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close></div>
+    <article class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><button class="modal-close" aria-label="Close" data-close>×</button><div id="modalContent"></div></article>
+  </div>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
